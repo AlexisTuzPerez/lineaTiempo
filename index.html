@@ -16,22 +16,22 @@
         
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             border-bottom: 2px solid black;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
         
         .main-title {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
             color: black;
             margin: 0;
         }
         
         .subtitle {
-            font-size: 20px;
+            font-size: 16px;
             color: gray;
-            margin: 5px 0 0 0;
+            margin: 3px 0 0 0;
         }
         
         .timeline {
@@ -43,56 +43,60 @@
         .timeline::after {
             content: '';
             position: absolute;
-            width: 2px;
-            background-color: black;
+            width: 3px;
+            background: linear-gradient(to bottom, #333, #666, #333);
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -1px;
+            margin-left: -1.5px;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
         
         .container {
-            padding: 10px 40px;
+            padding: 10px 20px;
             position: relative;
             background-color: inherit;
-            width: 50%;
-            margin-bottom: 30px;
-        }
-        
-        .container::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid black;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
+            width: 42%;
+            margin-bottom: 20px;
         }
         
         .left {
             left: 0;
+            margin-right: 8%;
+            text-align: right;
         }
         
         .right {
-            left: 50%;
-        }
-        
-        .left::after {
-            right: -12px;
-        }
-        
-        .right::after {
-            left: -12px;
+            left: 52%;
+            text-align: left;
         }
         
         .content {
-            padding: 20px;
+            padding: 10px;
             background-color: white;
             position: relative;
             border: 2px solid black;
             border-radius: 6px;
+            z-index: 2;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .content:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        
+        .left .content {
+            margin-right: 20px;
+        }
+        
+        .right .content {
+            margin-left: 20px;
         }
         
         .art-deco {
@@ -140,28 +144,29 @@
         }
         
         .building-name {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .year {
             background-color: black;
             color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
+            padding: 3px 8px;
+            border-radius: 12px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             font-weight: bold;
+            font-size: 12px;
         }
         
         .style-tag {
             background-color: #f0f0f0;
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 10px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             font-weight: bold;
         }
         
@@ -177,10 +182,39 @@
         .expresionismo-estructural-tag { background-color: #FF4500; color: white; }
         .arquitectura-acero-tag { background-color: #B8860B; color: white; }
         
+        .text-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .architect-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #f8f8f8;
+            border-radius: 6px;
+        }
+        
+        .architect-portrait {
+            width: 45px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 2px solid #B8860B;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        
+        .architect-info {
+            flex: 1;
+        }
+        
         .details {
-            margin-top: 10px;
-            font-size: 14px;
-            line-height: 1.4;
+            margin-top: 6px;
+            font-size: 12px;
+            line-height: 1.3;
         }
         
         .architect {
@@ -194,13 +228,14 @@
         }
         
         .building-image {
-            width: 90%;
-            height: auto;
+            width: 140px;
+
             object-fit: cover;
-            border-radius: 6px 6px 0 0;
+            border-radius: 4px;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             display: block;
+            flex-shrink: 0;
         }
         
         @media screen and (max-width: 600px) {
@@ -235,6 +270,9 @@
     <div class="header">
         <h1 class="main-title">Línea de Tiempo de la Arquitectura Moderna</h1>
         <h2 class="subtitle">Modern Architecture Timeline</h2>
+        <p style="margin: 20px 0 10px 0; font-size: 16px; font-weight: bold;">Elizabeth Del Carmen Montenegro Hernández</p>
+        <p style="margin: 5px 0; font-size: 14px; color: #666;">14 de Noviembre de 2025</p>
+        <p style="margin: 5px 0; font-size: 14px; color: #666;">Historia de la Arquitectura Moderna</p>
     </div>
 
     <div class="timeline">
@@ -242,13 +280,22 @@
         <!-- Palacio de Cristal -->
         <div class="container left">
             <div class="content arquitectura-acero">
-                <div class="year">1850-1851</div>
-                <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
-                <div class="building-name">Palacio de Cristal</div>
-                <div class="details">
-                    <div class="location">Londres, Inglaterra</div>
-                    <div class="architect">Arquitecto: Sir Joseph Paxton (1803-1865)</div>
-                    <div>Pionero de la arquitectura de hierro y vidrio, prefabricación modular. 563m × 124m, primera megaestructura industrial moderna.</div>
+                <img src="https://hotelurso.com/wp-content/uploads/2020/09/palacio-de-cristal-madrid-grandes-planes-urso-hotel-scaled.jpg" alt="Palacio de Cristal" class="building-image">
+                <div class="text-content">
+                    <div class="year">1850-1851</div>
+                    <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
+                    <div class="building-name">Palacio de Cristal</div>
+                    <div class="details">
+                        <div class="location">Londres, Inglaterra</div>
+                        <div class="architect-container">
+                            <img src="https://render.fineartamerica.com/images/rendered/default/poster/6.5/8/break/images/artworkimages/medium/2/portrait-of-sir-joseph-paxton-may-1836-henry-perronet-briggs.jpg" alt="Sir Joseph Paxton" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Sir Joseph Paxton</div>
+                                <div style="font-size: 11px; color: #666;">(1803-1865)</div>
+                            </div>
+                        </div>
+                        <div>Pionero de la arquitectura de hierro y vidrio, prefabricación modular. 563m × 124m, primera megaestructura industrial moderna.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -256,13 +303,22 @@
         <!-- Edificio 25bis Rue Franklin -->
         <div class="container left">
             <div class="content acero-cristal">
-                <div class="year">1903-1904</div>
-                <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
-                <div class="building-name">Edificio 25bis Rue Franklin</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Arquitecto: Auguste Perret (1874-1954)</div>
-                    <div>Primer edificio de apartamentos en concreto armado, pionero del proto-racionalismo y uso estructural del concreto.</div>
+                <img src="https://i.pinimg.com/originals/a1/74/49/a1744953ccede3c80973293415692887.jpg" alt="Edificio 25bis Rue Franklin" class="building-image">
+                <div class="text-content">
+                    <div class="year">1903-1904</div>
+                    <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
+                    <div class="building-name">Edificio 25bis Rue Franklin</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6g4ajhIvaF4MW9Kb7r5LGzZJF4klbtPuIA&s" alt="Auguste Perret" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Auguste Perret</div>
+                                <div style="font-size: 11px; color: #666;">(1874-1954)</div>
+                            </div>
+                        </div>
+                        <div>Primer edificio de apartamentos en concreto armado, pionero del proto-racionalismo y uso estructural del concreto.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -270,13 +326,22 @@
         <!-- Villa Karma -->
         <div class="container right">
             <div class="content acero-cristal">
-                <div class="year">1903-1906</div>
-                <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
-                <div class="building-name">Villa Karma</div>
-                <div class="details">
-                    <div class="location">Montreux, Suiza</div>
-                    <div class="architect">Arquitecto: Adolf Loos (1870-1933)</div>
-                    <div>Ejemplo temprano del racionalismo de Loos con planificación espacial innovadora y ausencia de ornamentación.</div>
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQElRd3AN9FkrA/feedshare-shrink_800/feedshare-shrink_800/0/1704815550949?e=2147483647&v=beta&t=flAahNAYV7JVfv7qBnRTOTyTM1OWp9DWVtRq_ljGBFI" alt="Villa Karma" class="building-image">
+                <div class="text-content">
+                    <div class="year">1903-1906</div>
+                    <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
+                    <div class="building-name">Villa Karma</div>
+                    <div class="details">
+                        <div class="location">Montreux, Suiza</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT37jMdnEasF7EgJgbzSqaAejW-DTo3XONFA&s" alt="Adolf Loos" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Adolf Loos</div>
+                                <div style="font-size: 11px; color: #666;">(1870-1933)</div>
+                            </div>
+                        </div>
+                        <div>Ejemplo temprano del racionalismo de Loos con planificación espacial innovadora y ausencia de ornamentación.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -284,13 +349,22 @@
         <!-- Edificio Goldman Salatsch (Looshaus) -->
         <div class="container left">
             <div class="content acero-cristal">
-                <div class="year">1909-1911</div>
-                <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
-                <div class="building-name">Edificio Goldman Salatsch (Looshaus)</div>
-                <div class="details">
-                    <div class="location">Viena, Austria</div>
-                    <div class="architect">Arquitecto: Adolf Loos (1870-1933)</div>
-                    <div>Edificio comercial revolucionario que materializa el concepto "Ornamento y Delito" frente al Palacio Imperial.</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIRjAU2YHkh1-8mu7WVqhsx8rjnOtXFEhP9YooOwBSXpqw5awdowon8AD1WnLcas2niKYGyvPMrePZHaB46dF4_NcR9D67dibU6_x-xlnh95zo3r9MZfXwTMTJnfVLxmFaDF4s1oRuRYNL/s1600/Loos+Store+vista.jpg" alt="Edificio Goldman Salatsch (Looshaus)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1909-1911</div>
+                    <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
+                    <div class="building-name">Edificio Goldman Salatsch (Looshaus)</div>
+                    <div class="details">
+                        <div class="location">Viena, Austria</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT37jMdnEasF7EgJgbzSqaAejW-DTo3XONFA&s" alt="Adolf Loos" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Adolf Loos</div>
+                                <div style="font-size: 11px; color: #666;">(1870-1933)</div>
+                            </div>
+                        </div>
+                        <div>Edificio comercial revolucionario que materializa el concepto "Ornamento y Delito" frente al Palacio Imperial.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -298,13 +372,22 @@
         <!-- Casa Steiner -->
         <div class="container right">
             <div class="content acero-cristal">
-                <div class="year">1910</div>
-                <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
-                <div class="building-name">Casa Steiner</div>
-                <div class="details">
-                    <div class="location">Viena, Austria</div>
-                    <div class="architect">Arquitecto: Adolf Loos (1870-1933)</div>
-                    <div>Residencia unifamiliar que ejemplifica el proto-racionalismo con volumétricas simples y funcionalidad pura.</div>
+                <img src="https://es.wikiarquitectura.com/wp-content/uploads/2017/01/Casa-Steiner-Adolf-Loos-Viena-WikiArquitectura_02-1920x2560.jpg" alt="Casa Steiner" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1910</div>
+                    <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
+                    <div class="building-name">Casa Steiner</div>
+                    <div class="details">
+                        <div class="location">Viena, Austria</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT37jMdnEasF7EgJgbzSqaAejW-DTo3XONFA&s" alt="Adolf Loos" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Adolf Loos</div>
+                                <div style="font-size: 11px; color: #666;">(1870-1933)</div>
+                            </div>
+                        </div>
+                        <div>Residencia unifamiliar que ejemplifica el proto-racionalismo con volumétricas simples y funcionalidad pura.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -312,13 +395,22 @@
         <!-- Unity Temple -->
         <div class="container left">
             <div class="content organica">
-                <div class="year">1905-1908</div>
-                <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
-                <div class="building-name">Unity Temple</div>
-                <div class="details">
-                    <div class="location">Oak Park, Illinois, EUA</div>
-                    <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
-                    <div>Templo unitario en concreto armado, ejemplo de arquitectura religiosa orgánica con innovación estructural.</div>
+                <img src="https://cdn.vox-cdn.com/thumbor/fOY_OLkcN5V6ULje1O2lgp4IQ_U=/0x0:1120x1400/1200x0/filters:focal(0x0:1120x1400):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/8645851/UnityTemple_NicholasJamesPhoto_6.JPG" alt="Unity Temple" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1905-1908</div>
+                    <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
+                    <div class="building-name">Unity Temple</div>
+                    <div class="details">
+                        <div class="location">Oak Park, Illinois, EUA</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNt5tBvxDOgDa3Mj2YCM6WtCVMhTsrNNjrsA&s" alt="Frank Lloyd Wright" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Frank Lloyd Wright</div>
+                                <div style="font-size: 11px; color: #666;">(1867-1959)</div>
+                            </div>
+                        </div>
+                        <div>Templo unitario en concreto armado, ejemplo de arquitectura religiosa orgánica con innovación estructural.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,13 +418,22 @@
         <!-- Casa Robie -->
         <div class="container right">
             <div class="content organica">
-                <div class="year">1908-1910</div>
-                <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
-                <div class="building-name">Casa Robie</div>
-                <div class="details">
-                    <div class="location">Chicago, Illinois, EUA</div>
-                    <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
-                    <div>Obra maestra de las Prairie Houses, ejemplo cumbre del estilo Prairie School con líneas horizontales características.</div>
+                <img src="https://media.revistaad.es/photos/614c4477efebb9c2d8ada91c/master/w_1600,c_limit/wright1.jpeg" alt="Casa Robie" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1908-1910</div>
+                    <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
+                    <div class="building-name">Casa Robie</div>
+                    <div class="details">
+                        <div class="location">Chicago, Illinois, EUA</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNt5tBvxDOgDa3Mj2YCM6WtCVMhTsrNNjrsA&s" alt="Frank Lloyd Wright" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Frank Lloyd Wright</div>
+                                <div style="font-size: 11px; color: #666;">(1867-1959)</div>
+                            </div>
+                        </div>
+                        <div>Obra maestra de las Prairie Houses, ejemplo cumbre del estilo Prairie School con líneas horizontales características.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -340,13 +441,22 @@
         <!-- Centro del Centenario de Wrocław -->
         <div class="container left">
             <div class="content expresionismo-estructural">
-                <div class="year">1911-1913</div>
-                <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
-                <div class="building-name">Centro del Centenario de Wrocław</div>
-                <div class="details">
-                    <div class="location">Wrocław, Polonia</div>
-                    <div class="architect">Arquitecto: Max Berg (1870-1947)</div>
-                    <div>Monumental edificio en concreto armado con cúpula expresionista, pionero del expresionismo estructural alemán.</div>
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/03/c3/a5/iglica-z-hala-stulecia.jpg?w=1200&h=-1&s=1" alt="Centro del Centenario de Wrocław" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1911-1913</div>
+                    <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
+                    <div class="building-name">Centro del Centenario de Wrocław</div>
+                    <div class="details">
+                        <div class="location">Wrocław, Polonia</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Max_Berg_portrait.jpg/250px-Max_Berg_portrait.jpg" alt="Max Berg" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Max Berg</div>
+                                <div style="font-size: 11px; color: #666;">(1870-1947)</div>
+                            </div>
+                        </div>
+                        <div>Monumental edificio en concreto armado con cúpula expresionista, pionero del expresionismo estructural alemán.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -354,13 +464,29 @@
         <!-- Monumento a Cuauhtémoc -->
         <div class="container left">
             <div class="content neoindigenismo">
-                <div class="year">1887</div>
-                <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
-                <div class="building-name">Monumento a Cuauhtémoc</div>
-                <div class="details">
-                    <div class="location">Ciudad de México, México</div>
-                    <div class="architect">Arquitectos: Francisco M. Jiménez y Miguel Noreña</div>
-                    <div>Primer ejemplo del eclecticismo arquitectónico neoindigenista en México.</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/MonumentCuauhtemocPaseo2.jpg" alt="Monumento a Cuauhtémoc" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1887</div>
+                    <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
+                    <div class="building-name">Monumento a Cuauhtémoc</div>
+                    <div class="details">
+                        <div class="location">Ciudad de México, México</div>
+                        <div class="architect-container">
+                            <img src="https://www.researchgate.net/publication/321786146/figure/fig1/AS:571402547281920@1513244391749/Figura-1-Francisco-Jimenez-1824-1881-Fuente-Mapoteca-Manuel-Orozco-y-Berra-de.png" alt="Francisco M. Jiménez" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Francisco M. Jiménez</div>
+                                <div style="font-size: 11px; color: #666;">(1824-1881)</div>
+                            </div>
+                        </div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Miguel_Noreña.jpg" alt="Miguel Noreña" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Miguel Noreña</div>
+                                <div style="font-size: 11px; color: #666;">(1843-1894)</div>
+                            </div>
+                        </div>
+                        <div>Primer ejemplo del eclecticismo arquitectónico neoindigenista en México.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -368,13 +494,22 @@
         <!-- Casa Vicens -->
         <div class="container right">
             <div class="content expresionismo">
-                <div class="year">1883-1888</div>
-                <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
-                <div class="building-name">Casa Vicens</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
-                    <div>Primera obra importante de Gaudí, estilo neomudejar-morisco. Patrimonio de la Humanidad.</div>
+                <img src="https://www.serentripidy.com/wp-content/uploads/2021/01/Casa-Vicens-From-Carrer-de-Carolines.jpg" alt="Casa Vicens" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1883-1888</div>
+                    <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
+                    <div class="building-name">Casa Vicens</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
+                        <div>Primera obra importante de Gaudí, estilo neomudéjar-morisco. Patrimonio de la Humanidad.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -382,13 +517,22 @@
         <!-- Home Insurance Building -->
         <div class="container left">
             <div class="content arquitectura-acero">
-                <div class="year">1884-1885</div>
-                <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
-                <div class="building-name">Home Insurance Building</div>
-                <div class="details">
-                    <div class="location">Chicago, Estados Unidos</div>
-                    <div class="architect">Arquitecto: William Le Baron Jenney (1832-1907)</div>
-                    <div>Primer rascacielos del mundo con estructura de acero, pionero de la Escuela de Chicago. 42.1m de altura.</div>
+                <img src="https://www.architecture.org/cdn-cgi/image/f=auto,w=600,w=800,q=80/https://images.architecture.org/api/v1/image/assets/49af4dfb0fbc43d58bf8ce407e839d74/93466d0e0af443aab6b6a28fa32eadbd" alt="Home Insurance Building" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1884-1885</div>
+                    <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
+                    <div class="building-name">Home Insurance Building</div>
+                    <div class="details">
+                        <div class="location">Chicago, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-TFMt4Gz0LdOGXIGvUYbVkqMPZrIIjcPDXg&s" alt="William Le Baron Jenney" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">William Le Baron Jenney</div>
+                                <div style="font-size: 11px; color: #666;">(1832-1907)</div>
+                            </div>
+                        </div>
+                        <div>Primer rascacielos del mundo con estructura de acero, pionero de la Escuela de Chicago. 42.1m de altura.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -396,13 +540,22 @@
         <!-- Torre Eiffel -->
         <div class="container right">
             <div class="content arquitectura-acero">
-                <div class="year">1887-1889</div>
-                <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
-                <div class="building-name">Torre Eiffel</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Ingeniero: Gustave Eiffel (1832-1923)</div>
-                    <div>Icono de la ingeniería en hierro forjado, 324m de altura. Torre más alta del mundo por 41 años, símbolo de la industrialización.</div>
+                <img src="https://blog-francia.com/wp-content/uploads/2022/09/La-Torre-Eiffel.jpg" alt="Torre Eiffel" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1887-1889</div>
+                    <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
+                    <div class="building-name">Torre Eiffel</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Gustave_Eiffel.jpg/1200px-Gustave_Eiffel.jpg" alt="Gustave Eiffel" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Gustave Eiffel</div>
+                                <div style="font-size: 11px; color: #666;">(1832-1923)</div>
+                            </div>
+                        </div>
+                        <div>Icono de la ingeniería en hierro forjado, 324m de altura. Torre más alta del mundo por 41 años, símbolo de la industrialización.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,13 +563,22 @@
         <!-- Edificio Wainwright -->
         <div class="container right">
             <div class="content arquitectura-acero">
-                <div class="year">1890-1891</div>
-                <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
-                <div class="building-name">Edificio Wainwright</div>
-                <div class="details">
-                    <div class="location">San Luis, Misuri, Estados Unidos</div>
-                    <div class="architect">Arquitecto: Louis Sullivan (1856-1924)</div>
-                    <div>Rascacielos de la Escuela de Chicago, expresión vertical. 41m de altura, ejemplo de "form follows function".</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Louis_Sullivan_-_Wainwright_Building,_Seventh_+_Chestnut_Streets,_Saint_Louis,_St._Louis_City_County,_MO.jpg" alt="Edificio Wainwright" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1890-1891</div>
+                    <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
+                    <div class="building-name">Edificio Wainwright</div>
+                    <div class="details">
+                        <div class="location">San Luis, Misuri, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://www.biografiasyvidas.com/biografia/s/fotos/sullivan.jpg" alt="Louis Sullivan" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Louis Sullivan</div>
+                                <div style="font-size: 11px; color: #666;">(1856-1924)</div>
+                            </div>
+                        </div>
+                        <div>Rascacielos de la Escuela de Chicago, expresión vertical. 41m de altura, ejemplo de "form follows function".</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,13 +586,22 @@
         <!-- Casa Winslow -->
         <div class="container left">
             <div class="content organica">
-                <div class="year">1893-1894</div>
-                <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
-                <div class="building-name">Casa Winslow</div>
-                <div class="details">
-                    <div class="location">River Forest, Illinois, EUA</div>
-                    <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
-                    <div>Primera obra independiente de Wright, marca el inicio de la Arquitectura Orgánica americana.</div>
+                <img src="https://es.wikiarquitectura.com/wp-content/uploads/2017/01/Winslow-House-Frank-Lloyd-Wright-Wikiarchitecture_21-1920x2880.jpg" alt="Casa Winslow" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1893-1894</div>
+                    <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
+                    <div class="building-name">Casa Winslow</div>
+                    <div class="details">
+                        <div class="location">River Forest, Illinois, EUA</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNt5tBvxDOgDa3Mj2YCM6WtCVMhTsrNNjrsA&s" alt="Frank Lloyd Wright" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Frank Lloyd Wright</div>
+                                <div style="font-size: 11px; color: #666;">(1867-1959)</div>
+                            </div>
+                        </div>
+                        <div>Primera obra independiente de Wright, marca el inicio de la Arquitectura Orgánica americana.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,13 +609,22 @@
         <!-- Edificio Guaranty -->
         <div class="container right">
             <div class="content arquitectura-acero">
-                <div class="year">1895-1896</div>
-                <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
-                <div class="building-name">Edificio Guaranty</div>
-                <div class="details">
-                    <div class="location">Buffalo, Nueva York, Estados Unidos</div>
-                    <div class="architect">Arquitecto: Louis Sullivan (1856-1924)</div>
-                    <div>Rascacielos de 13 pisos, 46m de altura. Máxima expresión de la Escuela de Chicago con decoración orgánica.</div>
+                <img src="https://i.pinimg.com/736x/d2/ed/10/d2ed100157061e79a0f8073b64612a3b.jpg" alt="Edificio Guaranty" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1895-1896</div>
+                    <div class="style-tag arquitectura-acero-tag">ARQUITECTURA DEL ACERO</div>
+                    <div class="building-name">Edificio Guaranty</div>
+                    <div class="details">
+                        <div class="location">Buffalo, Nueva York, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://www.biografiasyvidas.com/biografia/s/fotos/sullivan.jpg" alt="Louis Sullivan" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Louis Sullivan</div>
+                                <div style="font-size: 11px; color: #666;">(1856-1924)</div>
+                            </div>
+                        </div>
+                        <div>Rascacielos de 13 pisos, 46m de altura. Máxima expresión de la Escuela de Chicago con decoración orgánica.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -452,13 +632,22 @@
         <!-- Teatro de los Champs-Élysées -->
         <div class="container right">
             <div class="content art-deco">
-                <div class="year">1913</div>
-                <div class="style-tag art-deco-tag">ART DÉCO</div>
-                <div class="building-name">Teatro de los Champs-Élysées</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Arquitecto: Auguste Perret (1874-1954)</div>
-                    <div>Uno de los primeros ejemplos del estilo Art Déco, con su fachada geométrica característica.</div>
+                <img src="https://s.rfi.fr/media/display/e8ec8fb8-12d9-11ea-813f-005056a99247/w:1280/p:3x4/teatro-campos-eliseos.jpg" alt="Teatro de los Champs-Élysées" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1913</div>
+                    <div class="style-tag art-deco-tag">ART DÉCO</div>
+                    <div class="building-name">Teatro de los Champs-Élysées</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa6g4ajhIvaF4MW9Kb7r5LGzZJF4klbtPuIA&s" alt="Auguste Perret" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Auguste Perret</div>
+                                <div style="font-size: 11px; color: #666;">(1874-1954)</div>
+                            </div>
+                        </div>
+                        <div>Uno de los primeros ejemplos del estilo Art Déco, con su fachada geométrica característica.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -466,13 +655,22 @@
         <!-- Colegio de las Teresianas -->
         <div class="container left">
             <div class="content expresionismo">
-                <div class="year">1888-1890</div>
-                <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
-                <div class="building-name">Colegio de las Teresianas</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
-                    <div>Ejemplo del período neogótico evolucionado de Gaudí, con elementos expresionistas únicos.</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3VfUjLf9WRmmf2o6p1rXW39k_Vs666iEfxHPWNciz7CQdL8dH3PIYa06EGrYBXJZ81INp1wZTdPrFBwCfDwYuSz_mKgxwLJ6pkt-GdhBC_ueZ7oz9uZ7DlDOnr5-OmKdgSvxzXvXRsbU/s1600/IMG_1145.JPG" alt="Colegio de las Teresianas" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1888-1890</div>
+                    <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
+                    <div class="building-name">Colegio de las Teresianas</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
+                        <div>Ejemplo del período neogótico evolucionado de Gaudí, con elementos expresionistas únicos.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -480,13 +678,22 @@
         <!-- Logia Masónica -->
         <div class="container left">
             <div class="content neoindigenismo">
-                <div class="year">1915</div>
-                <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
-                <div class="building-name">Logia Masónica (Templo del Dulce Nombre de Jesús)</div>
-                <div class="details">
-                    <div class="location">Mérida, Yucatán, México</div>
-                    <div class="architect">Arquitecto: Manuel Amábilis (1889-1966)</div>
-                    <div>Remodelación neomaya de templo católico a logia masónica, pionero del estilo neomaya.</div>
+                <img src="https://images.sipse.com/MT6olKFB8IKao6t6oKiq-PVASMk=/fit-in/580x500/2021/07/14/1626224604680.jpg" alt="Logia Masónica (Templo del Dulce Nombre de Jesús)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1915</div>
+                    <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
+                    <div class="building-name">Logia Masónica (Templo del Dulce Nombre de Jesús)</div>
+                    <div class="details">
+                        <div class="location">Mérida, Yucatán, México</div>
+                        <div class="architect-container">
+                            <img src="https://topyucatan.com/storage/uploads/viewjpeg-1670438835.crdownload" alt="Manuel Amábilis" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Manuel Amábilis</div>
+                                <div style="font-size: 11px; color: #666;">(1889-1966)</div>
+                            </div>
+                        </div>
+                        <div>Remodelación neomaya de templo católico a logia masónica, pionero del estilo neomaya.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -494,13 +701,22 @@
         <!-- Pabellón de Cristal -->
         <div class="container right">
             <div class="content expresionismo-estructural">
-                <div class="year">1914</div>
-                <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
-                <div class="building-name">Pabellón de Cristal</div>
-                <div class="details">
-                    <div class="location">Colonia, Alemania</div>
-                    <div class="architect">Arquitecto: Bruno Taut (1880-1938)</div>
-                    <div>Pabellón experimental en vidrio y cristal para la Exposición Deutscher Werkbund, manifiesto del expresionismo alemán.</div>
+                <img src="https://preview.redd.it/rs7f4py3vus51.jpg?width=549&format=pjpg&auto=webp&s=82d40b4841e92de0a73593e3a76e137d39e528cc" alt="Pabellón de Cristal" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1914</div>
+                    <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
+                    <div class="building-name">Pabellón de Cristal</div>
+                    <div class="details">
+                        <div class="location">Colonia, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://minerva.circulobellasartes.com/wp-content/uploads/2025/02/img_resumen_501.jpg" alt="Bruno Taut" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Bruno Taut</div>
+                                <div style="font-size: 11px; color: #666;">(1880-1938)</div>
+                            </div>
+                        </div>
+                        <div>Pabellón experimental en vidrio y cristal para la Exposición Deutscher Werkbund, manifiesto del expresionismo alemán.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -508,13 +724,22 @@
         <!-- Fábrica Fagus -->
         <div class="container right">
             <div class="content bauhaus">
-                <div class="year">1917</div>
-                <div class="style-tag bauhaus-tag">BAUHAUS</div>
-                <div class="building-name">Fábrica Fagus</div>
-                <div class="details">
-                    <div class="location">Alfeld, Alemania</div>
-                    <div class="architect">Arquitecto: Walter Gropius (1883-1969)</div>
-                    <div>Precursor del estilo Bauhaus, ejemplo temprano de arquitectura industrial moderna con grandes superficies acristaladas.</div>
+                <img src="https://www.metalocus.es/sites/default/files/metalocus_walter-gropius-adolf-meyer_fabrica-fagus_04.jpg" alt="Fábrica Fagus" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1917</div>
+                    <div class="style-tag bauhaus-tag">BAUHAUS</div>
+                    <div class="building-name">Fábrica Fagus</div>
+                    <div class="details">
+                        <div class="location">Alfeld, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Walter_Gropius_Foto_1920.jpg/250px-Walter_Gropius_Foto_1920.jpg" alt="Walter Gropius" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Walter Gropius</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1969)</div>
+                            </div>
+                        </div>
+                        <div>Precursor del estilo Bauhaus, ejemplo temprano de arquitectura industrial moderna con grandes superficies acristaladas.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -522,13 +747,22 @@
         <!-- Gran Teatro de Berlín -->
         <div class="container left">
             <div class="content expresionismo-estructural">
-                <div class="year">1918-1919</div>
-                <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
-                <div class="building-name">Gran Teatro de Berlín</div>
-                <div class="details">
-                    <div class="location">Berlín, Alemania</div>
-                    <div class="architect">Arquitecto: Hans Poelzig (1869-1936)</div>
-                    <div>Teatro expresionista con interior escultórico de cúpula estrellada, ejemplo icónico del expresionismo teatral alemán.</div>
+                <img src="https://www.whitemad.pl/wp-content/uploads/2024/06/resize_1155pb111.jpg" alt="Gran Teatro de Berlín" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1918-1919</div>
+                    <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
+                    <div class="building-name">Gran Teatro de Berlín</div>
+                    <div class="details">
+                        <div class="location">Berlín, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hans_Poelzig.jpg" alt="Hans Poelzig" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Hans Poelzig</div>
+                                <div style="font-size: 11px; color: #666;">(1869-1936)</div>
+                            </div>
+                        </div>
+                        <div>Teatro expresionista con interior escultórico de cúpula estrellada, ejemplo icónico del expresionismo teatral alemán.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -536,13 +770,22 @@
         <!-- Torre Einstein -->
         <div class="container right">
             <div class="content expresionismo-estructural">
-                <div class="year">1920-1924</div>
-                <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
-                <div class="building-name">Torre Einstein</div>
-                <div class="details">
-                    <div class="location">Potsdam, Alemania</div>
-                    <div class="architect">Arquitecto: Erich Mendelsohn (1887-1953)</div>
-                    <div>Observatorio astrofísico con formas escultóricas fluidas, obra maestra del expresionismo estructural alemán.</div>
+                <img src="https://media.revistaad.es/photos/60c754e1286f642f6de5dc31/master/w_1600,c_limit/108774.jpg" alt="Torre Einstein" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1920-1924</div>
+                    <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
+                    <div class="building-name">Torre Einstein</div>
+                    <div class="details">
+                        <div class="location">Potsdam, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://www.biografiasyvidas.com/biografia/m/fotos/mendelshon_erich.jpg" alt="Erich Mendelsohn" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Erich Mendelsohn</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1953)</div>
+                            </div>
+                        </div>
+                        <div>Observatorio astrofísico con formas escultóricas fluidas, obra maestra del expresionismo estructural alemán.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -550,13 +793,22 @@
         <!-- Mossehaus -->
         <div class="container left">
             <div class="content expresionismo-estructural">
-                <div class="year">1921-1923</div>
-                <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
-                <div class="building-name">Mossehaus</div>
-                <div class="details">
-                    <div class="location">Berlín, Alemania</div>
-                    <div class="architect">Arquitecto: Erich Mendelsohn (1887-1953)</div>
-                    <div>Edificio comercial con fachada curva expresionista, símbolo de la modernidad urbana alemana de los años 20.</div>
+                <img src="https://pbs.twimg.com/media/EMAafQqWwAUJTuw.jpg" alt="Mossehaus" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1921-1923</div>
+                    <div class="style-tag expresionismo-estructural-tag">EXPRESIONISMO ESTRUCTURAL</div>
+                    <div class="building-name">Mossehaus</div>
+                    <div class="details">
+                        <div class="location">Berlín, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://www.biografiasyvidas.com/biografia/m/fotos/mendelshon_erich.jpg" alt="Erich Mendelsohn" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Erich Mendelsohn</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1953)</div>
+                            </div>
+                        </div>
+                        <div>Edificio comercial con fachada curva expresionista, símbolo de la modernidad urbana alemana de los años 20.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -564,13 +816,22 @@
         <!-- Casa Auerbach -->
         <div class="container left">
             <div class="content bauhaus">
-                <div class="year">1924</div>
-                <div class="style-tag bauhaus-tag">BAUHAUS</div>
-                <div class="building-name">Casa Auerbach</div>
-                <div class="details">
-                    <div class="location">Jena, Alemania</div>
-                    <div class="architect">Arquitecto: Walter Gropius (1883-1969)</div>
-                    <div>Ejemplo del "bloque espacial" bauhaus, aplicando principios de funcionalidad y racionalización en vivienda.</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNoa-TNFfQkAPfqKkJ1zV-f0S5jrHvObc1W-F_8_5zD_qTBDuo8_wQzCpxNXoPnAfldcvroGtFZdspvaeNWSTrfWKP0Om1Ltd0RjRQ-GwFUCZXanttX47IZYYu-J6j02o_EujYxI8C28ed/s1600/casa+auerbach+walter+gropius+4.jpg" alt="Casa Auerbach" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1924</div>
+                    <div class="style-tag bauhaus-tag">BAUHAUS</div>
+                    <div class="building-name">Casa Auerbach</div>
+                    <div class="details">
+                        <div class="location">Jena, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Walter_Gropius_Foto_1920.jpg/250px-Walter_Gropius_Foto_1920.jpg" alt="Walter Gropius" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Walter Gropius</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1969)</div>
+                            </div>
+                        </div>
+                        <div>Ejemplo del "bloque espacial" bauhaus, aplicando principios de funcionalidad y racionalización en vivienda.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -578,13 +839,22 @@
         <!-- Casas La Roche-Jeanneret -->
         <div class="container right">
             <div class="content brutalismo">
-                <div class="year">1923-1925</div>
-                <div class="style-tag brutalismo-tag">BRUTALISMO</div>
-                <div class="building-name">Casas La Roche-Jeanneret</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Arquitecto: Le Corbusier (1887-1965)</div>
-                    <div>Primeras obras importantes de Le Corbusier aplicando los principios del movimiento moderno.</div>
+                <img src="https://www.metalocus.es/sites/default/files/metalocus_villeroche_montsezamorano_01_1.jpg" alt="Casas La Roche-Jeanneret" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1923-1925</div>
+                    <div class="style-tag brutalismo-tag">BRUTALISMO</div>
+                    <div class="building-name">Casas La Roche-Jeanneret</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://www.urbipedia.org/w/images/thumb/3/32/Lecorbusier.jpg/200px-Lecorbusier.jpg" alt="Le Corbusier" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Le Corbusier</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1965)</div>
+                            </div>
+                        </div>
+                        <div>Primeras obras importantes de Le Corbusier aplicando los principios del movimiento moderno.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -592,13 +862,22 @@
         <!-- Villa Savoye -->
         <div class="container left">
             <div class="content brutalismo">
-                <div class="year">1928-1931</div>
-                <div class="style-tag brutalismo-tag">BRUTALISMO</div>
-                <div class="building-name">Villa Savoye</div>
-                <div class="details">
-                    <div class="location">Poissy, Francia</div>
-                    <div class="architect">Arquitecto: Le Corbusier (1887-1965)</div>
-                    <div>Obra maestra que ejemplifica los Cinco Puntos para una Nueva Arquitectura: pilotes, planta libre, jardín terraza, fachada libre y ventanales corridos.</div>
+                <img src="https://vielfaltdermoderne.de/wp-content/uploads/2025/04/IMG_2353.webp" alt="Villa Savoye" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1928-1931</div>
+                    <div class="style-tag brutalismo-tag">BRUTALISMO</div>
+                    <div class="building-name">Villa Savoye</div>
+                    <div class="details">
+                        <div class="location">Poissy, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://www.urbipedia.org/w/images/thumb/3/32/Lecorbusier.jpg/200px-Lecorbusier.jpg" alt="Le Corbusier" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Le Corbusier</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1965)</div>
+                            </div>
+                        </div>
+                        <div>Obra maestra que ejemplifica los Cinco Puntos para una Nueva Arquitectura: pilotes, planta libre, jardín terraza, fachada libre y ventanales corridos.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -606,13 +885,22 @@
         <!-- Casa Tugendhat -->
         <div class="container right">
             <div class="content internacional">
-                <div class="year">1928-1930</div>
-                <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
-                <div class="building-name">Casa Tugendhat</div>
-                <div class="details">
-                    <div class="location">Brno, República Checa</div>
-                    <div class="architect">Arquitecto: Ludwig Mies van der Rohe (1886-1969)</div>
-                    <div>Obra maestra del Estilo Internacional con espacios fluidos y estructura de acero. Patrimonio de la Humanidad.</div>
+                <img src="https://www.whitemad.pl/wp-content/uploads/2024/04/030_VT_Copyright_david_zidlicky_GARDEN-VIEW.jpg" alt="Casa Tugendhat" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1928-1930</div>
+                    <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
+                    <div class="building-name">Casa Tugendhat</div>
+                    <div class="details">
+                        <div class="location">Brno, República Checa</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg" alt="Ludwig Mies van der Rohe" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Ludwig Mies van der Rohe</div>
+                                <div style="font-size: 11px; color: #666;">(1886-1969)</div>
+                            </div>
+                        </div>
+                        <div>Obra maestra del Estilo Internacional con espacios fluidos y estructura de acero. Patrimonio de la Humanidad.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -620,13 +908,22 @@
         <!-- Park Güell -->
         <div class="container left">
             <div class="content expresionismo">
-                <div class="year">1900-1914</div>
-                <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
-                <div class="building-name">Park Güell</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
-                    <div>Parque público con naturalismo expresionista, técnica del trencadís. Patrimonio de la Humanidad.</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Park_Güell_01.jpg" alt="Park Güell" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1900-1914</div>
+                    <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
+                    <div class="building-name">Park Güell</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
+                        <div>Parque público con naturalismo expresionista, técnica del trencadís. Patrimonio de la Humanidad.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -634,13 +931,22 @@
         <!-- Edificio de la Bauhaus -->
         <div class="container right">
             <div class="content bauhaus">
-                <div class="year">1925-1926</div>
-                <div class="style-tag bauhaus-tag">BAUHAUS</div>
-                <div class="building-name">Edificio de la Bauhaus</div>
-                <div class="details">
-                    <div class="location">Dessau, Alemania</div>
-                    <div class="architect">Arquitecto: Walter Gropius (1883-1969)</div>
-                    <div>Sede emblemática de la escuela Bauhaus, símbolo máximo del movimiento arquitectónico moderno.</div>
+                <img src="https://imagenes.elpais.com/resizer/v2/7DLU4PSJ6TKPT5UGOJNVPBONTQ.jpg?auth=3f3ad32bccf84c7c5e5171d1e403f1234665dafb4f533bc4934a5175775e7656&width=1960" alt="Edificio de la Bauhaus" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1925-1926</div>
+                    <div class="style-tag bauhaus-tag">BAUHAUS</div>
+                    <div class="building-name">Edificio de la Bauhaus</div>
+                    <div class="details">
+                        <div class="location">Dessau, Alemania</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Walter_Gropius_Foto_1920.jpg/250px-Walter_Gropius_Foto_1920.jpg" alt="Walter Gropius" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Walter Gropius</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1969)</div>
+                            </div>
+                        </div>
+                        <div>Sede emblemática de la escuela Bauhaus, símbolo máximo del movimiento arquitectónico moderno.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -648,13 +954,22 @@
         <!-- Parque México -->
         <div class="container left">
             <div class="content art-deco">
-                <div class="year">1927</div>
-                <div class="style-tag art-deco-tag">ART DÉCO</div>
-                <div class="building-name">Parque México</div>
-                <div class="details">
-                    <div class="location">Ciudad de México, México</div>
-                    <div class="architect">Arquitectos: Leonardo Noriega y Javier Stávoli</div>
-                    <div>Ejemplo destacado del Art Déco mexicano en espacios públicos y diseño urbano.</div>
+                <img src="https://cdn.portico.travel/i/v1.203691.jpg" alt="Parque México" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1927</div>
+                    <div class="style-tag art-deco-tag">ART DÉCO</div>
+                    <div class="building-name">Parque México</div>
+                    <div class="details">
+                        <div class="location">Ciudad de México, México</div>
+                        <div class="architect-container">
+                            <img src="https://i.pinimg.com/280x280_RS/5e/87/bc/5e87bc486785e5564629fda8fd37868a.jpg" alt="Leonardo Noriega" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Leonardo Noriega</div>
+                                <div style="font-size: 11px; color: #666;">(1890-1963)</div>
+                            </div>
+                        </div>
+                        <div>Ejemplo destacado del Art Déco mexicano en espacios públicos y diseño urbano.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -662,13 +977,22 @@
         <!-- Chrysler Building -->
         <div class="container left">
             <div class="content art-deco">
-                <div class="year">1928-1930</div>
-                <div class="style-tag art-deco-tag">ART DÉCO</div>
-                <div class="building-name">Chrysler Building</div>
-                <div class="details">
-                    <div class="location">Nueva York, Estados Unidos</div>
-                    <div class="architect">Arquitecto: William Van Alen (1883-1954)</div>
-                    <div>Icónico rascacielos Art Déco de 77 niveles y 319m de altura. Símbolo del estilo en América.</div>
+                <img src="https://static.dezeen.com/uploads/2025/02/chrysler-building-art-deco-series_dezeen_2364_col_5-852x1211.jpg" alt="Chrysler Building" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1928-1930</div>
+                    <div class="style-tag art-deco-tag">ART DÉCO</div>
+                    <div class="building-name">Chrysler Building</div>
+                    <div class="details">
+                        <div class="location">Nueva York, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://images.findagrave.com/photos/2019/303/41784647_201a6657-69d7-4b9a-85fe-19da7f2cf3ed.png" alt="William Van Alen" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">William Van Alen</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1954)</div>
+                            </div>
+                        </div>
+                        <div>Icónico rascacielos Art Déco de 77 niveles y 319m de altura. Símbolo del estilo en América.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -676,13 +1000,22 @@
         <!-- Pabellón de México en Sevilla -->
         <div class="container right">
             <div class="content neoindigenismo">
-                <div class="year">1929</div>
-                <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
-                <div class="building-name">Pabellón de México en Sevilla</div>
-                <div class="details">
-                    <div class="location">Sevilla, España</div>
-                    <div class="architect">Arquitecto: Manuel Amábilis (1889-1966)</div>
-                    <div>Ejemplo destacado del estilo neomaya en exposición internacional, fusionando elementos prehispánicos con arquitectura moderna.</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pavillon_Mexique_expo_1929_S%C3%A9ville.JPG/960px-Pavillon_Mexique_expo_1929_S%C3%A9ville.JPG" alt="Pabellón de México en Sevilla" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1929</div>
+                    <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
+                    <div class="building-name">Pabellón de México en Sevilla</div>
+                    <div class="details">
+                        <div class="location">Sevilla, España</div>
+                        <div class="architect-container">
+                            <img src="https://topyucatan.com/storage/uploads/viewjpeg-1670438835.crdownload" alt="Manuel Amábilis" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Manuel Amábilis</div>
+                                <div style="font-size: 11px; color: #666;">(1889-1966)</div>
+                            </div>
+                        </div>
+                        <div>Ejemplo destacado del estilo neomaya en exposición internacional, fusionando elementos prehispánicos con arquitectura moderna.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -690,13 +1023,22 @@
         <!-- Pabellón de Alemania para la Exposición Internacional de Barcelona -->
         <div class="container left">
             <div class="content internacional">
-                <div class="year">1929</div>
-                <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
-                <div class="building-name">Pabellón de Alemania (Barcelona)</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Ludwig Mies van der Rohe (1886-1969)</div>
-                    <div>Obra icónica que define los principios del Estilo Internacional: "Menos es más" y "Dios está en los detalles".</div>
+                <img src="https://planner5d.com/blog/content/images/2024/06/pabellon.barcelona.5.jpg" alt="Pabellón de Alemania (Barcelona)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1929</div>
+                    <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
+                    <div class="building-name">Pabellón de Alemania (Barcelona)</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg" alt="Ludwig Mies van der Rohe" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Ludwig Mies van der Rohe</div>
+                                <div style="font-size: 11px; color: #666;">(1886-1969)</div>
+                            </div>
+                        </div>
+                        <div>Obra icónica que define los principios del Estilo Internacional: "Menos es más" y "Dios está en los detalles".</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -704,13 +1046,22 @@
         <!-- Empire State Building -->
         <div class="container right">
             <div class="content art-deco">
-                <div class="year">1930-1931</div>
-                <div class="style-tag art-deco-tag">ART DÉCO</div>
-                <div class="building-name">Empire State Building</div>
-                <div class="details">
-                    <div class="location">Nueva York, Estados Unidos</div>
-                    <div class="architect">Arquitectos: Shreve, Lamb and Harmon Associates</div>
-                    <div>Rascacielos de 102 niveles y 443.2m de altura. Máximo exponente del Art Déco en rascacielos.</div>
+                <img src="https://images.unsplash.com/photo-1528291151377-165f5107c82a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW1waXJlJTIwc3RhdGUlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Empire State Building" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1930-1931</div>
+                    <div class="style-tag art-deco-tag">ART DÉCO</div>
+                    <div class="building-name">Empire State Building</div>
+                    <div class="details">
+                        <div class="location">Nueva York, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTapT39CWOjaWjnsUVl0DnwSROlae0d0Akd7ZfTQrad3_FU3HkqiFbSjc4UfoYTktc2Nw&usqp=CAU" alt="William Lamb" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">William Lamb</div>
+                                <div style="font-size: 11px; color: #666;">Shreve, Lamb and Harmon</div>
+                            </div>
+                        </div>
+                        <div>Rascacielos de 102 niveles y 443.2m de altura. Máximo exponente del Art Déco en rascacielos.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -718,13 +1069,22 @@
         <!-- Pabellón Suizo -->
         <div class="container left">
             <div class="content brutalismo">
-                <div class="year">1930-1932</div>
-                <div class="style-tag brutalismo-tag">BRUTALISMO</div>
-                <div class="building-name">Pabellón Suizo</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Arquitecto: Le Corbusier (1887-1965)</div>
-                    <div>Edificio de residencia universitaria que marca la transición hacia el concreto aparente característico del brutalismo.</div>
+                <img src="https://es.wikiarquitectura.com/wp-content/uploads/2017/01/Swiss-Pavilion-Le-Corbusier-Paris-WikiArquitectura_038-1920x2880.jpg" alt="Pabellón Suizo" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1930-1932</div>
+                    <div class="style-tag brutalismo-tag">BRUTALISMO</div>
+                    <div class="building-name">Pabellón Suizo</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://www.urbipedia.org/w/images/thumb/3/32/Lecorbusier.jpg/200px-Lecorbusier.jpg" alt="Le Corbusier" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Le Corbusier</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1965)</div>
+                            </div>
+                        </div>
+                        <div>Edificio de residencia universitaria que marca la transición hacia el concreto aparente característico del brutalismo.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -732,13 +1092,29 @@
         <!-- Palacio de Chaillot -->
         <div class="container left">
             <div class="content art-deco">
-                <div class="year">1937</div>
-                <div class="style-tag art-deco-tag">ART DÉCO</div>
-                <div class="building-name">Palais de Chaillot</div>
-                <div class="details">
-                    <div class="location">París, Francia</div>
-                    <div class="architect">Arquitectos: Jacques Carlu, Léon Azéma y Louis-Hippolyte Boileau</div>
-                    <div>Conjunto arquitectónico monumental que representa la madurez del estilo Art Déco francés.</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Palais_de_Chaillot_(Paris)_(4).jpg" alt="Palais de Chaillot" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1937</div>
+                    <div class="style-tag art-deco-tag">ART DÉCO</div>
+                    <div class="building-name">Palais de Chaillot</div>
+                    <div class="details">
+                        <div class="location">París, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://expositions-virtuelles.citedelarchitecture.fr/portraits_architectes/img/01_LISTE/CARLU/AR_28-02-10_31.jpg" alt="Jacques Carlu" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Jacques Carlu</div>
+                                <div style="font-size: 11px; color: #666;">(1890-1976)</div>
+                            </div>
+                        </div>
+                        <div class="architect-container">
+                            <img src="https://fondarch.lu/wp-content/uploads/2018/11/Capture-21.jpg" alt="Léon Azéma" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Léon Azéma</div>
+                                <div style="font-size: 11px; color: #666;">(1888-1978)</div>
+                            </div>
+                        </div>
+                        <div>Conjunto arquitectónico monumental que representa la madurez del estilo Art Déco francés.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -746,13 +1122,22 @@
         <!-- Casa de la Cascada (Fallingwater) -->
         <div class="container right">
             <div class="content organica">
-                <div class="year">1936-1939</div>
-                <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
-                <div class="building-name">Casa de la Cascada (Fallingwater)</div>
-                <div class="details">
-                    <div class="location">Mill Run, Pennsylvania, EUA</div>
-                    <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
-                    <div>Obra maestra de la arquitectura orgánica, integración total con la naturaleza sobre una cascada natural.</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Wrightfallingwater.jpg" alt="Casa de la Cascada (Fallingwater)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1936-1939</div>
+                    <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
+                    <div class="building-name">Casa de la Cascada (Fallingwater)</div>
+                    <div class="details">
+                        <div class="location">Mill Run, Pennsylvania, EUA</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNt5tBvxDOgDa3Mj2YCM6WtCVMhTsrNNjrsA&s" alt="Frank Lloyd Wright" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Frank Lloyd Wright</div>
+                                <div style="font-size: 11px; color: #666;">(1867-1959)</div>
+                            </div>
+                        </div>
+                        <div>Obra maestra de la arquitectura orgánica, integración total con la naturaleza sobre una cascada natural.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -760,13 +1145,22 @@
         <!-- Casa Batlló -->
         <div class="container right">
             <div class="content expresionismo">
-                <div class="year">1904-1906</div>
-                <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
-                <div class="building-name">Casa Batlló</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
-                    <div>Renovación expresionista en Paseo de Gracia, naturalismo expresionista. Patrimonio de la Humanidad.</div>
+                <img src="https://image-tc.galaxy.tf/wijpeg-12dd588ga7o5pz4lnwzb0j6oy/casa-batllo.jpg" alt="Casa Batlló" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1904-1906</div>
+                    <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
+                    <div class="building-name">Casa Batlló</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
+                        <div>Renovación expresionista en Paseo de Gracia, naturalismo expresionista. Patrimonio de la Humanidad.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -774,13 +1168,22 @@
         <!-- Casa Gropius -->
         <div class="container left">
             <div class="content bauhaus">
-                <div class="year">1937-1938</div>
-                <div class="style-tag bauhaus-tag">BAUHAUS</div>
-                <div class="building-name">Casa Gropius</div>
-                <div class="details">
-                    <div class="location">Massachusetts, Estados Unidos</div>
-                    <div class="architect">Arquitecto: Walter Gropius (1883-1969)</div>
-                    <div>Residencia personal de Gropius en EUA, aplicación del Bauhaus en arquitectura doméstica americana.</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZx-qQ1omD9lyrKaalEjKXxdLXq3PsZ5YJtcRnvz-MrWcAlghgTkY-v6dIuO-7hFzETEj7J4s0zllfiWoM2fEn9DDBgBnX-wYaN7vz48HDxMvaVCflgkSFRfwEF4wKkrZj1GWhIqtza4A/s1600/1545995_10152087167534438_2142138935_n.jpg" alt="Casa Gropius" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1937-1938</div>
+                    <div class="style-tag bauhaus-tag">BAUHAUS</div>
+                    <div class="building-name">Casa Gropius</div>
+                    <div class="details">
+                        <div class="location">Massachusetts, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Walter_Gropius_Foto_1920.jpg/250px-Walter_Gropius_Foto_1920.jpg" alt="Walter Gropius" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Walter Gropius</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1969)</div>
+                            </div>
+                        </div>
+                        <div>Residencia personal de Gropius en EUA, aplicación del Bauhaus en arquitectura doméstica americana.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -788,13 +1191,22 @@
         <!-- Villa Müller -->
         <div class="container right">
             <div class="content acero-cristal">
-                <div class="year">1928-1930</div>
-                <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
-                <div class="building-name">Villa Müller</div>
-                <div class="details">
-                    <div class="location">Praga, República Checa</div>
-                    <div class="architect">Arquitecto: Adolf Loos (1870-1933)</div>
-                    <div>Obra maestra del Raumplan (planificación espacial) con espacios interconectados en diferentes niveles sin ornamentación.</div>
+                <img src="https://imagenes.elpais.com/resizer/v2/R7R7KRJDVQDOXFMT65MBTPP5NM.png?auth=c868173fa153b44e56c8f7f837b7caf8f6edcd7aa10afc662e2328cd87afed36&width=1200" alt="Villa Müller" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1928-1930</div>
+                    <div class="style-tag acero-cristal-tag">PROTO-RACIONALISMO</div>
+                    <div class="building-name">Villa Müller</div>
+                    <div class="details">
+                        <div class="location">Praga, República Checa</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT37jMdnEasF7EgJgbzSqaAejW-DTo3XONFA&s" alt="Adolf Loos" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Adolf Loos</div>
+                                <div style="font-size: 11px; color: #666;">(1870-1933)</div>
+                            </div>
+                        </div>
+                        <div>Obra maestra del Raumplan (planificación espacial) con espacios interconectados en diferentes niveles sin ornamentación.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -802,13 +1214,22 @@
         <!-- Edificio Seagram -->
         <div class="container right">
             <div class="content internacional">
-                <div class="year">1954-1958</div>
-                <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
-                <div class="building-name">Edificio Seagram</div>
-                <div class="details">
-                    <div class="location">Nueva York, Estados Unidos</div>
-                    <div class="architect">Arquitectos: Ludwig Mies van der Rohe y Philip Johnson</div>
-                    <div>Rascacielos de 38 pisos que define el estilo corporativo internacional con acabados en bronce y vidrio topacio.</div>
+                <img src="https://www.metalocus.es/sites/default/files/styles/mopis_news_carousel_item_desktop/public/ml_plaza_seagram_02_515.jpg?itok=VxjxsIJH" alt="Edificio Seagram" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1954-1958</div>
+                    <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
+                    <div class="building-name">Edificio Seagram</div>
+                    <div class="details">
+                        <div class="location">Nueva York, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg" alt="Ludwig Mies van der Rohe" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Ludwig Mies van der Rohe</div>
+                                <div style="font-size: 11px; color: #666;">(1886-1969)</div>
+                            </div>
+                        </div>
+                        <div>Rascacielos de 38 pisos que define el estilo corporativo internacional con acabados en bronce y vidrio topacio.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -816,13 +1237,22 @@
         <!-- Parque de las Américas -->
         <div class="container right">
             <div class="content neoindigenismo">
-                <div class="year">1945</div>
-                <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
-                <div class="building-name">Parque de las Américas</div>
-                <div class="details">
-                    <div class="location">Mérida, Yucatán, México</div>
-                    <div class="architect">Arquitecto: Manuel Amábilis (1889-1966)</div>
-                    <div>Complejo urbano neomaya que integra arquitectura prehispánica con diseño de espacios públicos modernos.</div>
+                <img src="https://topyucatan.com/storage/uploads/10-1637732945.jpeg" alt="Parque de las Américas" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1945</div>
+                    <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
+                    <div class="building-name">Parque de las Américas</div>
+                    <div class="details">
+                        <div class="location">Mérida, Yucatán, México</div>
+                        <div class="architect-container">
+                            <img src="https://topyucatan.com/storage/uploads/viewjpeg-1670438835.crdownload" alt="Manuel Amábilis" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Manuel Amábilis</div>
+                                <div style="font-size: 11px; color: #666;">(1889-1966)</div>
+                            </div>
+                        </div>
+                        <div>Complejo urbano neomaya que integra arquitectura prehispánica con diseño de espacios públicos modernos.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -830,13 +1260,36 @@
         <!-- Ciudad Universitaria -->
         <div class="container left">
             <div class="content neoindigenismo">
-                <div class="year">1946-1953</div>
-                <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
-                <div class="building-name">Ciudad Universitaria (Plan Maestro)</div>
-                <div class="details">
-                    <div class="location">Ciudad de México, México</div>
-                    <div class="architect">Arquitectos: Mario Pani, Enrique del Moral, Teodoro González de León</div>
-                    <div>Patrimonio Cultural de la Humanidad. Integración de elementos prehispánicos en arquitectura universitaria moderna.</div>
+                <img src="https://gaceta.cch.unam.mx/sites/default/files/media-image/pag_20_9.jpg" alt="Ciudad Universitaria (Plan Maestro)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1946-1953</div>
+                    <div class="style-tag neoindigenismo-tag">NEOINDIGENISMO</div>
+                    <div class="building-name">Ciudad Universitaria (Plan Maestro)</div>
+                    <div class="details">
+                        <div class="location">Ciudad de México, México</div>
+                        <div class="architect-container">
+                            <img src="https://glocal.mx/wp-content/uploads/2023/03/Glocal-Design-Mario-Pani.webp" alt="Mario Pani" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Mario Pani</div>
+                                <div style="font-size: 11px; color: #666;">(1911-1993)</div>
+                            </div>
+                        </div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWOZ6jPZZbh3S6A1rBXAS5B2qJSAnhIlagA&s" alt="Enrique del Moral" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Enrique del Moral</div>
+                                <div style="font-size: 11px; color: #666;">(1905-1987)</div>
+                            </div>
+                        </div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXnaYIwkJ-TD9ZNwzGBcMwBxKlrGvKADF1A&s" alt="Teodoro González de León" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Teodoro González de León</div>
+                                <div style="font-size: 11px; color: #666;">(1926-2016)</div>
+                            </div>
+                        </div>
+                        <div>Patrimonio Cultural de la Humanidad. Integración de elementos prehispánicos en arquitectura universitaria moderna.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -844,13 +1297,22 @@
         <!-- Casa Farnsworth -->
         <div class="container right">
             <div class="content internacional">
-                <div class="year">1946-1951</div>
-                <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
-                <div class="building-name">Casa Farnsworth</div>
-                <div class="details">
-                    <div class="location">Illinois, Estados Unidos</div>
-                    <div class="architect">Arquitecto: Ludwig Mies van der Rohe (1886-1969)</div>
-                    <div>Casa de cristal que ejemplifica la máxima pureza del Estilo Internacional con transparencia total.</div>
+                <img src="https://media.revistaad.es/photos/68c2e1ee6906d1103bc136b8/2:3/w_1040,h_1560,c_limit/GettyImages-564087033.jpg" alt="Casa Farnsworth" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1946-1951</div>
+                    <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
+                    <div class="building-name">Casa Farnsworth</div>
+                    <div class="details">
+                        <div class="location">Illinois, Estados Unidos</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg" alt="Ludwig Mies van der Rohe" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Ludwig Mies van der Rohe</div>
+                                <div style="font-size: 11px; color: #666;">(1886-1969)</div>
+                            </div>
+                        </div>
+                        <div>Casa de cristal que ejemplifica la máxima pureza del Estilo Internacional con transparencia total.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -858,13 +1320,22 @@
         <!-- Unidad de Vivienda (Unité d'Habitation) -->
         <div class="container left">
             <div class="content brutalismo">
-                <div class="year">1945-1951</div>
-                <div class="style-tag brutalismo-tag">BRUTALISMO</div>
-                <div class="building-name">Unidad de Vivienda (Unité d'Habitation)</div>
-                <div class="details">
-                    <div class="location">Marsella, Francia</div>
-                    <div class="architect">Arquitecto: Le Corbusier (1887-1965)</div>
-                    <div>Edificio de 330 apartamentos en concreto aparente, prototipo de vivienda social brutalista con calle comercial en los niveles 7 y 8.</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglIpJR-rQDh7ErrljOyjcTO-WJdq7mEM_veMePx_TJAgNHL1Wh11C2Bs2FXSOXgoaNfUZJcbBL4yTuzqcYlGTF85FRjUYreZABtVabHlOdtkp-9WJTEmC-yfbzktLjoxmgmEG_RwFd4kI/s1600/15.jpg" alt="Unidad de Vivienda (Unité d'Habitation)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1945-1951</div>
+                    <div class="style-tag brutalismo-tag">BRUTALISMO</div>
+                    <div class="building-name">Unidad de Vivienda (Unité d'Habitation)</div>
+                    <div class="details">
+                        <div class="location">Marsella, Francia</div>
+                        <div class="architect-container">
+                            <img src="https://www.urbipedia.org/w/images/thumb/3/32/Lecorbusier.jpg/200px-Lecorbusier.jpg" alt="Le Corbusier" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Le Corbusier</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1965)</div>
+                            </div>
+                        </div>
+                        <div>Edificio de 330 apartamentos en concreto aparente, prototipo de vivienda social brutalista con calle comercial en los niveles 7 y 8.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -872,13 +1343,22 @@
         <!-- Casa Milà (La Pedrera) -->
         <div class="container right">
             <div class="content expresionismo">
-                <div class="year">1906-1912</div>
-                <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
-                <div class="building-name">Casa Milà (La Pedrera)</div>
-                <div class="details">
-                    <div class="location">Barcelona, España</div>
-                    <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
-                    <div>Síntesis orgánica con primer estacionamiento subterráneo del mundo. Azotea escultórica. Patrimonio de la Humanidad.</div>
+                <img src="https://bcnmagica.com/imagenes/la-casa-mila.jpg" alt="Casa Milà (La Pedrera)" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1906-1912</div>
+                    <div class="style-tag expresionismo-tag">EXPRESIONISMO</div>
+                    <div class="building-name">Casa Milà (La Pedrera)</div>
+                    <div class="details">
+                        <div class="location">Barcelona, España</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
+                        <div>Síntesis orgánica con primer estacionamiento subterráneo del mundo. Azotea escultórica. Patrimonio de la Humanidad.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -886,13 +1366,22 @@
         <!-- Oficinas Bacardí -->
         <div class="container left">
             <div class="content internacional">
-                <div class="year">1957-1961</div>
-                <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
-                <div class="building-name">Oficinas Bacardí</div>
-                <div class="details">
-                    <div class="location">Estado de México, México</div>
-                    <div class="architect">Arquitecto: Ludwig Mies van der Rohe (1886-1969)</div>
-                    <div>Única obra construida de Mies van der Rohe en México, ejemplo del Estilo Internacional en Latinoamérica.</div>
+                <img src="https://media.admagazine.com/photos/68260e707f3e8cfb4c8f24e0/2:3/w_1296,h_1944,c_limit/Planta%20Bacardi.png" alt="Oficinas Bacardí" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1957-1961</div>
+                    <div class="style-tag internacional-tag">ESTILO INTERNACIONAL</div>
+                    <div class="building-name">Oficinas Bacardí</div>
+                    <div class="details">
+                        <div class="location">Estado de México, México</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Hugo_Erfurth_-_Portrait_Ludwig_Mies_van_der_Rohe,_1934.jpg" alt="Ludwig Mies van der Rohe" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Ludwig Mies van der Rohe</div>
+                                <div style="font-size: 11px; color: #666;">(1886-1969)</div>
+                            </div>
+                        </div>
+                        <div>Única obra construida de Mies van der Rohe en México, ejemplo del Estilo Internacional en Latinoamérica.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -900,13 +1389,16 @@
         <!-- Museo Guggenheim -->
         <div class="container right">
             <div class="content organica">
-                <div class="year">1956-1959</div>
-                <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
-                <div class="building-name">Museo Guggenheim</div>
-                <div class="details">
-                    <div class="location">Nueva York, Estados Unidos</div>
-                    <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
-                    <div>Última gran obra de Wright, museo en espiral continua que revoluciona el concepto de espacio expositivo.</div>
+                <img src="https://arquitecturaviva.com/assets/uploads/obras/53914/av_imagen_vertical.webp?h=2ef2b3d0" alt="Museo Guggenheim" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1956-1959</div>
+                    <div class="style-tag organica-tag">ARQUITECTURA ORGÁNICA</div>
+                    <div class="building-name">Museo Guggenheim</div>
+                    <div class="details">
+                        <div class="location">Nueva York, Estados Unidos</div>
+                        <div class="architect">Arquitecto: Frank Lloyd Wright (1867-1959)</div>
+                        <div>Última gran obra de Wright, museo en espiral continua que revoluciona el concepto de espacio expositivo.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -914,13 +1406,22 @@
         <!-- Distrito gubernamental Chandigarh -->
         <div class="container right">
             <div class="content brutalismo">
-                <div class="year">1951-1965</div>
-                <div class="style-tag brutalismo-tag">BRUTALISMO</div>
-                <div class="building-name">Distrito Gubernamental Chandigarh</div>
-                <div class="details">
-                    <div class="location">Chandigarh, India</div>
-                    <div class="architect">Arquitecto: Le Corbusier (1887-1965)</div>
-                    <div>Complejo gubernamental completo con Secretaría, Palacio de la Asamblea y Tribunal Superior. Máximo ejemplo del urbanismo brutalista.</div>
+                <img src="https://wikiarquitectura.com/wp-content/uploads/2017/01/Chandigarh_14.jpg" alt="Distrito Gubernamental Chandigarh" class="building-image">
+                <div style="padding: 15px;">
+                    <div class="year">1951-1965</div>
+                    <div class="style-tag brutalismo-tag">BRUTALISMO</div>
+                    <div class="building-name">Distrito Gubernamental Chandigarh</div>
+                    <div class="details">
+                        <div class="location">Chandigarh, India</div>
+                        <div class="architect-container">
+                            <img src="https://www.urbipedia.org/w/images/thumb/3/32/Lecorbusier.jpg/200px-Lecorbusier.jpg" alt="Le Corbusier" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Le Corbusier</div>
+                                <div style="font-size: 11px; color: #666;">(1887-1965)</div>
+                            </div>
+                        </div>
+                        <div>Complejo gubernamental completo con Secretaría, Palacio de la Asamblea y Tribunal Superior. Máximo ejemplo del urbanismo brutalista.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -935,7 +1436,13 @@
                     <div class="building-name">Basílica de la Sagrada Familia</div>
                     <div class="details">
                         <div class="location">Barcelona, España</div>
-                        <div class="architect">Arquitecto: Antoni Gaudí (1852-1926)</div>
+                        <div class="architect-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0p7J_-a4v7JxUTY-f_nKsjMGmpEmeLNBQQ&s" alt="Antoni Gaudí" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Antoni Gaudí</div>
+                                <div style="font-size: 11px; color: #666;">(1852-1926)</div>
+                            </div>
+                        </div>
                         <div>Obra maestra inacabada, síntesis orgánica definitiva. Patrimonio de la Humanidad. Proyecto en construcción hasta 2026.</div>
                     </div>
                 </div>
@@ -952,7 +1459,13 @@
                     <div class="building-name">Edificio PanAm (Metlife)</div>
                     <div class="details">
                         <div class="location">Nueva York, Estados Unidos</div>
-                        <div class="architect">Arquitecto: Walter Gropius (1883-1969)</div>
+                        <div class="architect-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Walter_Gropius_Foto_1920.jpg/250px-Walter_Gropius_Foto_1920.jpg" alt="Walter Gropius" class="architect-portrait">
+                            <div class="architect-info">
+                                <div class="architect">Walter Gropius</div>
+                                <div style="font-size: 11px; color: #666;">(1883-1969)</div>
+                            </div>
+                        </div>
                         <div>Rascacielos corporativo que aplica principios Bauhaus en gran escala urbana.</div>
                     </div>
                 </div>
@@ -962,12 +1475,9 @@
     </div>
 
     <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc;">
-        <p><em><strong>LÍNEA DE TIEMPO EXPANDIDA: 51 EDIFICACIONES</strong></em></p>
-        <p><strong>Distribución por estilo:</strong> Arquitectura del Acero (5) + Proto-racionalismo (5) + Expresionismo Estructural (5) + Arquitectura Orgánica (5) + Expresionismo (6) + Art Déco (5) + Neoindigenismo (5) + Bauhaus (5) + Estilo Internacional (5) + Brutalismo (5)</p>
         <div style="margin-top: 20px; font-size: 14px; color: #666;">
-            <p>Proyecto académico: <strong>Línea de Tiempo de la Arquitectura Moderna</strong></p>
-            <p><em>Modern Architecture Timeline</em></p>
-            <p>Período abarcado: 1850-1965 | 51 edificaciones representativas</p>
+            <p><strong>Referencia:</strong></p>
+            <p>Olmos, R. M. (2024). Historia de la arquitectura moderna [Diapositivas de PowerPoint]. Brightspace, Universidad Anáhuac. Recuperado de https://drive.google.com/drive/folders/1H0JpkEFgllcAkdLyhOtLowp6GqS2VfOH</p>
         </div>
     </div>
 
